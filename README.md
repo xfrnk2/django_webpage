@@ -1,2 +1,2 @@
-# django_webpage
-making web page with django
+# django_webpsite
+making web site with django
