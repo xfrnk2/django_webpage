@@ -7,19 +7,21 @@ def index(request):
     return render(request, 'index.html')
 
 def regConTester(request):
+    Tester.objects.all().delete()
     name = request.POST['name']
-    qs = Tester(t_name = name)
+    answer = request.POST['answer']
+    qs = Tester(t_name = name, t_answer = answer)
     qs.save()
-
-
 
     return HttpResponseRedirect(reverse('testers:allQuestions'))
 
 def showQuestions(request):
-        return render(request, 'testers/questions.html')
+    qs = Tester.objects.all()[0]
+    context = {'tester_value': qs}
+    return render(request, 'testers/questions.html', context)
 
 def conQuestions(request):
-    answer = request.POST.get('cb', 0)
+    answer = request.POST.get('cb', False)
     qs = Tester(t_answer = answer)
     qs.save()
     context = {'tester': qs}

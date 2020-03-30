@@ -13,6 +13,7 @@
 <form action="{% url 'testers:regCon' %}" method="post">
     {% csrf_token %}
         name : <input type="text" name="name"></br>
+    <input type="hidden" name="answer" value="0"></br>
         <input type="submit" name="Register"></br>
 </form>
 </body>

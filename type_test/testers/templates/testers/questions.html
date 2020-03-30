@@ -7,6 +7,12 @@
 <body>
 <form action="{% url 'testers:conQuestion'%}">
     {% csrf_token %}
+
+    {% if tester_value %}
+
+     {{tester_value.t_name}}님.</br>
+
+    {% endif %}
     1<input type="checkbox" name="cb" value="1">
     2<input type="checkbox" name="cb" value="2">
     3<input type="checkbox" name="cb" value="3">
