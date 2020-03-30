@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<p>테스트 결과</p>
+    {% if tester %}
+    {{tester.t_name}} 님의 테스트 결과는</br>
+    answer = {{tester.t_answer}}점입니다.</br>
+		{% else %}
+		<p>테스트 항목을 선택하지 않으셨습니다</p>
+		{% endif %}
+		<a href="{% url 'testers:index' %}">처음으로</a>
+
+
+</body>
+</html>
