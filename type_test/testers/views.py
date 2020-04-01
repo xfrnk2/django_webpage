@@ -21,7 +21,7 @@ def showQuestions(request):
     return render(request, 'testers/questions.html', context)
 
 def conQuestions(request):
-    answer = request.POST.get('cb', False)
+    answer = sum(list(map(int, request.POST.getlist('cb'))))
     qs = Tester(t_answer = answer)
     qs.save()
     context = {'tester': qs}

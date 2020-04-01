@@ -5,21 +5,23 @@
     <title>Title</title>
 </head>
 <body>
-<form action="{% url 'testers:conQuestion'%}">
+<form action="{% url 'testers:conQuestion'%}" method="post">
     {% csrf_token %}
-
-    {% if tester_value %}
-
-     {{tester_value.t_name}}님.</br>
-
-    {% endif %}
-    1<input type="checkbox" name="cb" value="1">
-    2<input type="checkbox" name="cb" value="2">
-    3<input type="checkbox" name="cb" value="3">
-    4<input type="checkbox" name="cb" value="4">
-    5<input type="checkbox" name="cb" value="5">
-    : 아니다
-    <input type="submit" name="Register"></br>
+        {% if tester_value %}
+        <ol>
+         <li>
+            <p>{{tester_value.t_name}}님.</p></br>
+            1<input type="checkbox" name="cb" value="1"></br>
+            2<input type="checkbox" name="cb" value="2"></br>
+            3<input type="checkbox" name="cb" value="3"></br>
+            4<input type="checkbox" name="cb" value="4"></br>
+            5<input type="checkbox" name="cb" value="5"></br>
+            <input type="submit" name="Register"></br>
+         </li>
+        </ol>
+        {% else %}
+            <p>결과가 없습니다.</p>
+        {% endif %}
 </form>
 </body>
 </html>
