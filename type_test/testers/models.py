@@ -8,3 +8,7 @@ class Tester(models.Model):
     def __str__(self):
         return self.t_name
 
+class Feedback(models.Model):
+    name = models.CharField(max_length=100)
+    comment = models.TextField(null=True)
+    created_date = models.DateTimeField(auto_now_add=True)

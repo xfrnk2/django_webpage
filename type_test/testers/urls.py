@@ -8,4 +8,6 @@ urlpatterns = [
     path('questions/', views.regConTester, name='regCon'),
     path('questions2/', views.showQuestions, name='allQuestions'),
     path('conQuestion/', views.conQuestions, name='conQuestion'),
+    path('createFeedbacks/', views.createFeedback, name='getFeedback'),
+    path('showFeedbackList/', views.getFeedbackList, name='feedbackList'),
 ]

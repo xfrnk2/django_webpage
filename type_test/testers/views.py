@@ -1,7 +1,8 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from django.urls import reverse
 from django.http import HttpResponseRedirect
-from .models import Tester
+from .models import Tester, Feedback
+from .forms import FeedbackForm
 # Create your views here.
 def index(request):
     return render(request, 'index.html')
@@ -26,3 +27,19 @@ def conQuestions(request):
     qs.save()
     context = {'tester': qs}
     return render(request, 'testers/results.html', context)
+
+def createFeedback(request):
+    if request.method == 'POST':
+        form = FeedbackForm(request.POST)
+        if form.is_valid():
+            form.save()
+        return redirect('testers:feedbackList')
+    else:
+        form = FeedbackForm()
+
+    return render(request, 'testers/feedbacks.html', {'form': form})
+
+def getFeedbackList(request):
+    qs = Feedback.objects.all()
+    context = {'feedback_list': qs}
+    return render(request, 'testers/recievedfeedback.html', context)
