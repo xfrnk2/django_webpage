@@ -1,2 +1,2 @@
 # django_webpsite
-making web site with django personally
+Django로 웹사이트 직접 만들어보기
