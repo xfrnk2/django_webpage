@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+gd
+{% if feedback_list %}
+    <ol>
+    {% for s in feedback_list %}
+    <li>
+    name : {{s.name}}
+    comment : {{s.comment}}
+    date : {{s.created_date}}
+    </li>
+    {% endfor %}
+    </ol>
+    {% else %}
+<p>there is nothing.</p>
+    {% endif %}
+</body>
+</html>
