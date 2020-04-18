@@ -9,5 +9,10 @@ from .models import Post
 
 @admin.register(Post) # Wrapping / 강사님 애용
 class PostAdmin(admin.ModelAdmin):
-   pass
-
+   list_display = ['title', 'content', 'title_length', 'is_public', 'created_at', 'updated_at'] # function도 넣을 수 있다. ex)models.py의 title_length
+   list_display_links = ['content'] # 기본적으로 첫번째 컬럼에 링크가 잡혀있으나, 대상을 설정할 수 있다.(여러개도 가능)
+   search_fields = ['title']
+   list_filter = ['created_at', 'is_public'] # 이부분도 커스텀 가능
+   def title_length(self, post): # 이름을 list_display 내의 원소와 맞춘다.
+      # return len(post.title)
+      return f"{len(post.title)} 글자"
