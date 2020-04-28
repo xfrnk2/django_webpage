@@ -37,7 +37,11 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'blog1.apps.Blog1Config',
+    # 'blog1.apps.Blog1Config',
+    # 'accounts.apps.AccountsConfig',
+    # lcoal apps
+    'blog1',
+    'accounts', # 아! 위의 두개 같구나.
 ]
 
 MIDDLEWARE = [

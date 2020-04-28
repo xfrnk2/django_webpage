@@ -1,4 +1,6 @@
 from django.contrib import admin
+from django.utils.safestring import mark_safe
+
 from .models import Post
 # Register your models here.
 # admin.site.register(Post)
@@ -16,3 +18,7 @@ class PostAdmin(admin.ModelAdmin):
    def title_length(self, post): # 이름을 list_display 내의 원소와 맞춘다.
       # return len(post.title)
       return f"{len(post.title)} 글자"
+   def photo_tag(self, post):
+      if post.photo:
+            return mark_safe(f'<img src="{post.photo.url}" style="width : 72px;" />')
+      return None
