@@ -1,7 +1,7 @@
 from django.contrib import admin
 from django.utils.safestring import mark_safe
 
-from .models import Post, Comment
+from .models import Post
 # Register your models here.
 # admin.site.register(Post)
 
@@ -22,7 +22,3 @@ class PostAdmin(admin.ModelAdmin):
       if post.photo:
             return mark_safe(f'<img src="{post.photo.url}" style="width : 72px;" />')
       return None
-
-@admin.register(Comment)
-class CommentAdmin(admin.ModelAdmin):
-   pass
