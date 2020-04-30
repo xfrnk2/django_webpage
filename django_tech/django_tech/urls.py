@@ -31,14 +31,7 @@ urlpatterns = [
 # 만약 if 문을 한 줄 없앤다 해도 빈 리스트를 반환하게 되지만, 명시적으로 사용하기 위해서 if문을 사용한다.
 if settings.DEBUG:
     urlpatterns += static.static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
-
-
-if settings.DEBUG:
     import debug_toolbar
-    urlpatterns = [
-        path('__debug__/', include(debug_toolbar.urls)),
-
-        # For django versions before 2.0:
-        # url(r'^__debug__/', include(debug_toolbar.urls)),
-
-    ] + urlpatterns
+    urlpatterns += [
+        path('__debug__', include(debug_toolbar.urls)),
+    ]
