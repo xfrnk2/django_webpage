@@ -42,6 +42,7 @@ INSTALLED_APPS = [
     # lcoal apps
     'blog1',
     'accounts', # 아! 위의 두개 같구나.
+    'debug_toolbar',
 ]
 
 MIDDLEWARE = [
@@ -52,6 +53,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'debug_toolbar.middleware.DebugToolbarMiddleware',
 ]
 
 ROOT_URLCONF = 'django_tech.urls'
@@ -128,3 +130,9 @@ MEDIA_URL = '/media/' #파일의 URL을 통해 접근할때
 # MEDIA_ROOT = os.path.join(BASE_DIR, '..', 'public', 'media') #파일을 저장할 때
 # MEDIA_ROOT = os.path.join(BASE_DIR, 'public', 'media') #파일을 저장할 때
 # 파일을 읽어서 응답을 주기 위한 방법 urls로 가보기
+
+INTERNAL_IPS = [
+    # ...
+    '127.0.0.1',
+    # ...
+]
