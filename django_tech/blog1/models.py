@@ -7,6 +7,7 @@ class Post(models.Model):
     created_at = models.DateTimeField(auto_now_add=True) #db 저장시간
     updated_at = models.DateTimeField(auto_now=True) # 수정시간
     photo = models.ImageField(blank=True)
+    tag_set = models.ManyToManyField('Tag', blank=True)
     is_public = models.BooleanField(default=False, verbose_name='공개여부') #
 
     def __str__(self): # 자바의 to string과 유사
@@ -27,3 +28,6 @@ class Comment(models.Model):
 
 class Tag(models.Model):
     name = models.CharField(max_length=50, unique=True)
+
+    def __str__(self):
+        return self.name
