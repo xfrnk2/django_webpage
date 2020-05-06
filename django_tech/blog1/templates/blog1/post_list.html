@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Blog1 / Post List</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+</head>
+<body>
+<form action="" method="get">
+    <input type="text" name="q" value="{{ q }}"/>
+    <input type="submit" value="검색" />
+</form>
+ <!--주소창에 http://127.0.0.1:8000/blog1/?q=%EB%82%B4%EC%9A%A9 ?q=검색할 이름 의 형태로 검색이 가능.-->
+<table class="table table-bordered table-hover">
+    <tbody>
+{% for post in post_list %}
+<tr>
+    <td>
+        {% if post.photo %}
+            <img src="{{ post.photo.url }}" style="width: 100px;"/>
+        {% else %}
+        No Photo
+        {% endif %}
+    </td>
+    <td>
+{{ post.title }}
+    </td>
+    <td>
+{{ post.content }}
+    </td>
+</tr>
+{% endfor %}
+    </tbody>
+</table>
+</body>
+</html>
