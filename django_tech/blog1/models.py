@@ -19,6 +19,9 @@ class Post(models.Model):
     #
     #     return len(self.title)
     # title_length.short_description = "타이틀 글자수" # 컬럼의 표시되는 부분을 설정할 수 있다. 여기말고 admin.py에 구현도 가능
+    class Meta:
+        ordering = ['-id']
+
 
 class Comment(models.Model):
     post = models.ForeignKey(Post, on_delete=models.CASCADE)
