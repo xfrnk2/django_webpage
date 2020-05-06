@@ -39,7 +39,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     #third apps
-    'django_extensions'
+    'django_extensions',
     # 'blog1.apps.Blog1Config',
     # 'accounts.apps.AccountsConfig',
     # lcoal apps
