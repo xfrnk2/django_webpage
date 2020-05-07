@@ -1,9 +1,6 @@
 from django.db import models
 from django.conf import settings
 
-# Create your models here.
-from django.utils.safestring import mark_safe
-
 
 class Post(models.Model):
     author = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
@@ -12,7 +9,9 @@ class Post(models.Model):
     photo = models.ImageField(blank=True)
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
-
+    tag_set = models.ManyToManyField('Tag', blank=True)
+    is_public = models.BooleanField(default=False, verbose_name="공개 여부")
+    
     class Meta:
         ordering = ['id']
 
