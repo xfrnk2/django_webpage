@@ -12,7 +12,7 @@
 <tr>
 <td>
     {% if photo in post %}
-
+        <img src="{{ post.photo.url }}" style="width: 100px;"/>
     {% else% }
     No Photo
     {% endif %}
