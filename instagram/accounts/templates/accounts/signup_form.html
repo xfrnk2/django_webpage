@@ -1,15 +1,13 @@
-<html>
-<head>
-<meta charset="utf-8" />
-</head>
-<body>
-<form action = "" method="POST" enctype="multipart/form-data">
-{% csrf_token %}
-<table>
-{{ form }}
-</table>
-<input type="submit" />
+{% extends "accounts/layout.html" %}
 
-</form>
-</body>
-</html>
+{% block content %}
+
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-6 offset-sm-3">
+                   {% include "_form.html" with submit_label="회원가입" %}
+            </div>
+        </div>
+    </div>
+ 
+{% endblock %}
