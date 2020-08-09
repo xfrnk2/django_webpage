@@ -1,0 +1,4 @@
+{{ user.first_name }} {{ user.last_name }} 님 Instragram 가입을 환영합니다.
+
+-운영자 xfrnk2 드림.-
+xfrnk2@gmail.com

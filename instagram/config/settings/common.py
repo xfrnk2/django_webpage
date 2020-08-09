@@ -27,7 +27,7 @@ DEBUG = True
 
 ALLOWED_HOSTS = []
 
-
+#ADMINS = [('Beomseok admin', 'xfrnk2@gmail.com'),]
 # Application definition
 
 INSTALLED_APPS = [
@@ -57,13 +57,13 @@ MIDDLEWARE = [
     
 ]
 
-ROOT_URLCONF = 'instagram.urls'
+ROOT_URLCONF = 'config.urls'
 
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
         'DIRS': [
-            os.path.join(BASE_DIR, 'instagram', 'templates'),
+            os.path.join(BASE_DIR, 'config', 'templates'),
         ],
         'APP_DIRS': True,
         'OPTIONS': {
@@ -77,7 +77,7 @@ TEMPLATES = [
     },
 ]
 
-WSGI_APPLICATION = 'instagram.wsgi.application'
+WSGI_APPLICATION = 'config.wsgi.application'
 
 
 # Database
@@ -130,7 +130,7 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 STATICFILES_DIRS = [
-            os.path.join(BASE_DIR, 'instagram', 'static'),
+            os.path.join(BASE_DIR, 'config', 'static'),
 ]
 STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 
@@ -139,3 +139,17 @@ MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
 INTERNAL_IPS = ['127.0.0.1']
+
+
+# Email with Send Grid
+
+#환경변수 지정하는 방법을 알아내서 추가해보자.
+# SENDGRID_API_KEY = os.environ.get("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")
+SENDGRID_API_KEY = os.environ.get("SENDGRID_API_KEY")
+EMAIL_HOST = 'smtp.sendgrid.net'
+EMAIL_HOST_USER = 'apikey'
+EMAIL_HOST_PASSWORD = SENDGRID_API_KEY
+EMAIL_PORT = 587
+EMAIL_USE_TLS = True
+
+WELCOME_EMAIL_SENDER = "xfrnk2@gmail.com"
