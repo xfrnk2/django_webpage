@@ -20,7 +20,7 @@ BASE_DIR = dirname(dirname(dirname(abspath(__file__))))
 # See https://docs.djangoproject.com/en/3.0/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = '(vu1#7!&h_1!)pji7n1na^ev6f_aws*w=q*ui5@n(_5sw^131g'
+SECRET_KEY = os.environ.get("SECRET_KEY")
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
@@ -143,8 +143,6 @@ INTERNAL_IPS = ['127.0.0.1']
 
 # Email with Send Grid
 
-#환경변수 지정하는 방법을 알아내서 추가해보자.
-# SENDGRID_API_KEY = os.environ.get("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")
 SENDGRID_API_KEY = os.environ.get("SENDGRID_API_KEY")
 EMAIL_HOST = 'smtp.sendgrid.net'
 EMAIL_HOST_USER = 'apikey'
