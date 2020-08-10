@@ -27,6 +27,7 @@ DEBUG = True
 
 ALLOWED_HOSTS = ['127.0.0.1']
 
+ADMINS = [('beomseok Kim', 'xfrnk2@gmail.com'), ]
 #ADMINS = [('Beomseok admin', 'xfrnk2@gmail.com'),]
 # Application definition
 
