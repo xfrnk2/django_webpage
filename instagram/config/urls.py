@@ -8,7 +8,7 @@ from django.views.generic import TemplateView
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('accounts/', include('accounts.urls')),
-    path('', login_required(TemplateView.as_view(template_name='root.html')), name='root '),
+    path('', login_required(TemplateView.as_view(template_name='root.html')), name='root'), # 아무 주소를 넣어도 최상위 주소로 매칭이 된다.
 ]
 
 if settings.DEBUG:
