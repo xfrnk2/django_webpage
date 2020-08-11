@@ -43,4 +43,3 @@ def profile_edit(request):
     return render(request, "accounts/profile_edit_form.html", {
         'form' : form,
     })
-    pass
