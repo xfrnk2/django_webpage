@@ -27,4 +27,4 @@ class SignupForm(UserCreationForm):
 class ProfileForm(forms.ModelForm):
     class Meta:
         model = User
-        fields = ["last_name", "first_name", "website_url", "bio", "phone_number", "gender"]
+        fields = ["profile", "last_name", "first_name", "website_url", "bio", "phone_number", "gender"]
