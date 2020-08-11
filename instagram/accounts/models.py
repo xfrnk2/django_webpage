@@ -17,7 +17,7 @@ class User(AbstractUser):
     phone_number = models.CharField(max_length=13, blank=True,
                                     validators=[RegexValidator(r"^010-?[1-9]\d{3}-?\d{4}$")])
     gender = models.CharField(max_length=1, blank=True, choices=GenderChoices.choices)
-    profile = models.ImageField(blank=True, upload_to="accounts/profile/%Y/%m/%d")
+    avatar = models.ImageField(blank=True, upload_to="accounts/avatar/%Y/%m/%d")
 
     def send_welcome_email(self):
         subject = render_to_string("accounts/welcome_email_subject.txt", {'user':self})
