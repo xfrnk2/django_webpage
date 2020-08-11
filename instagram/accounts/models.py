@@ -17,7 +17,7 @@ class User(AbstractUser):
     phone_number = models.CharField(max_length=13, blank=True,
                                     validators=[RegexValidator(r"^010-?[1-9]\d{3}-?\d{4}$")])
     gender = models.CharField(max_length=1, blank=True, choices=GenderChoices.choices)
-    avatar = models.ImageField(blank=True, upload_to="accounts/avatar/%Y/%m/%d")
+    avatar = models.ImageField(blank=True, upload_to="accounts/avatar/%Y/%m/%d", help_text="48px x 48px 크기의 png/jpg 파일을 업로드 해 주세요.")
 
     def send_welcome_email(self):
         subject = render_to_string("accounts/welcome_email_subject.txt", {'user':self})
